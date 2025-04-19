@@ -25,6 +25,9 @@ export default function Welcome() {
                                     {item}
                                 </Link>
                             ))}
+                            <Link href="/events" className="transition hover:text-blue-500">
+                                Events
+                            </Link>
                         </nav>
                     </div>
                 </header>
@@ -51,6 +54,9 @@ export default function Welcome() {
                         >
                             View Projects
                         </a>
+                        <Link href="/events" className="rounded-lg bg-blue-500 px-6 py-3 text-white shadow-lg transition hover:bg-blue-600">
+                            View Events
+                        </Link>
                     </div>
                 </main>
 

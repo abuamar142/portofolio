@@ -3,6 +3,7 @@
 use App\Models\Event;
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
+use App\Models\Certificate;
 
 Route::get('/', function () {
     return Inertia::render('welcome');
@@ -23,6 +24,22 @@ Route::get('/certifications/{id}', function ($id) {
         'message' => "Certification for event: {$event->title}",
     ]);
 })->name('certifications.show');
+
+Route::get('/certificates', function () {
+    $certificates = Certificate::orderBy('date', 'desc')->get();
+
+    return Inertia::render('certificates', [
+        'certificates' => $certificates,
+    ]);
+})->name('certificates');
+
+Route::get('/certificates/{id}', function ($id) {
+    $certificate = Certificate::findOrFail($id);
+
+    return Inertia::render('certificateDetail', [
+        'certificate' => $certificate,
+    ]);
+})->name('certificates.show');
 
 Route::middleware(['auth', 'verified'])->group(function () {
     Route::get('dashboard', function () {

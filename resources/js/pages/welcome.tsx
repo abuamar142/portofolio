@@ -28,6 +28,9 @@ export default function Welcome() {
                             <Link href="/events" className="transition hover:text-blue-500">
                                 Events
                             </Link>
+                            <Link href="/certificates" className="transition hover:text-blue-500">
+                                Certificates
+                            </Link>
                         </nav>
                     </div>
                 </header>
@@ -45,7 +48,10 @@ export default function Welcome() {
                         </p>
                     </div>
                     <div className="mt-6 flex space-x-4">
-                        <a href="#contact" className="rounded-lg bg-blue-500 px-6 py-3 text-white shadow-lg transition hover:bg-blue-600">
+                        <a
+                            href="#contact"
+                            className="rounded-lg border border-blue-500 px-6 py-3 text-blue-500 shadow-lg transition hover:bg-blue-500 hover:text-white"
+                        >
                             Contact Me
                         </a>
                         <a
@@ -54,8 +60,17 @@ export default function Welcome() {
                         >
                             View Projects
                         </a>
-                        <Link href="/events" className="rounded-lg bg-blue-500 px-6 py-3 text-white shadow-lg transition hover:bg-blue-600">
+                        <Link
+                            href="/events"
+                            className="rounded-lg border border-blue-500 px-6 py-3 text-blue-500 shadow-lg transition hover:bg-blue-500 hover:text-white"
+                        >
                             View Events
+                        </Link>
+                        <Link
+                            href="/certificates"
+                            className="rounded-lg border border-blue-500 px-6 py-3 text-blue-500 shadow-lg transition hover:bg-blue-500 hover:text-white"
+                        >
+                            View Certificates
                         </Link>
                     </div>
                 </main>

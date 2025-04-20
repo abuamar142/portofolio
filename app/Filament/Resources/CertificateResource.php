@@ -13,6 +13,7 @@ use Filament\Resources\Resource;
 use Filament\Tables;
 use Filament\Tables\Columns\TextColumn;
 use Filament\Tables\Table;
+use Illuminate\Database\Eloquent\Model;
 
 class CertificateResource extends Resource
 {
@@ -61,11 +62,18 @@ class CertificateResource extends Resource
                 TextColumn::make('drive_file_id')->label('Google Drive File ID')->searchable(),
                 TextColumn::make('description')->limit(50)->searchable(),
             ])
+            ->defaultSort('updated_at', 'desc')
             ->filters([
                 //
             ])
             ->actions([
                 Tables\Actions\EditAction::make(),
+                Tables\Actions\ReplicateAction::make()
+                    ->label('Duplicate')
+                    ->icon('heroicon-o-document-duplicate')
+                    ->successRedirectUrl(function (Model $replica) {
+                        return static::getUrl('edit', ['record' => $replica->id]);
+                    })
             ])
             ->bulkActions([
                 Tables\Actions\BulkActionGroup::make([
